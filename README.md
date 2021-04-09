@@ -55,3 +55,16 @@ Feel free to make any changes to the `nextDay` method and add any new code as lo
 still works correctly. However, do not alter the `Item` class or `items` property as those belong to the goblin in the corner who will insta-rage you as he doesn't believe in shared code ownership (you can make the `nextDay` method and `items` property static if you like, we'll cover for you).
 
 Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
+
+## Result of test
+
+* Introduced a dockerfile as I prefer a clean host i.e. I do not have PHP installed on my machine. Simply execute the following:
+`docker-compose build app && docker-compose run app composer install && ./vendor/bin/kahlan`
+* Main efforts were introducing factories, a bridge/wrapper for the untouchable Item class (I wanted to add accessors) & refactors to the GlidedRose class to make it more readable.
+* Otherwise noticed that there isn't a code check on Quality > 50 business rule? I assume this was intentional but I missed it. This needs adding to all handlers other than Sulfuras and necessary tests added.
+* Other todo's are:
+  * to add more isoltaed tests on the new files introduced & more test cases on code that is missing test coverage
+  * iterate on the GildedRose design and add some handlers to be executed on chain
+  * Introduce a DI container (albeit this adds overhead)
+  * More highlighted as docblocks in code  
+
